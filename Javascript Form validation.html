@@ -1,0 +1,95 @@
+<script type="text/javascript">
+	function valid()
+	{
+			uid = frm.uid.value;
+			em = frm.em.value;
+			pass = frm.pass.value;
+			city = frm.city.value;
+			gen = frm.g.value;
+			p1 = frm.pro1.value;
+			p2 = frm.pro2.value;
+			p3 = frm.pro3.value;
+			a = document.getElementById("pr1"); 
+			d = document.getElementById("pr2");
+			s = document.getElementById("pr3");  
+
+			if(uid=="")
+			{
+				document.getElementById('u_e').innerHTML='Please Enter UserID';
+				document.getElementById('u_e').style.color='red';
+				return false;
+			}
+			else if(em=="")
+			{
+				document.getElementById('e_e').innerHTML='Please Enter Email';
+				document.getElementById('u_e').style.color='red';
+				return false;
+			}
+			else{
+				product = "";
+				if(a.checked == true)
+				{
+					product +=" Apple";
+				}
+				if(d.checked == true)
+				{
+					product +=" Dell";
+				}
+				if(s.checked == true)
+				{
+					product +=" Sony";
+				}
+				
+				document.getElementById("user").innerHTML='User Name: '+uid;
+				document.getElementById("pass").innerHTML='Password: '+ pass;
+				document.getElementById("email").innerHTML='Email : '+em;
+				document.getElementById("city").innerHTML="City: "+city;
+				document.getElementById("gen").innerHTML="Gender: "+gen;
+				document.getElementById("pro").innerHTML="Your Selected Product:"+product;
+
+				
+				document.getElementById('u_e').innerHTML='';
+				
+				document.getElementById('e_e').innerHTML='';
+
+				return false;					
+			}		
+	}
+</script>
+
+<form name="frm" onsubmit="return valid();" style="border:1px solid teal; border-radius: 10px; padding: 10px;  text-align: center;">
+	<h3 align="center">Form Using JavaScript Validation - Avadh</h3>
+	<input type="" name="uid" placeholder="Enter UserName"><span id='u_e'></span>
+	<br><br>
+	<input type="email" name="em" placeholder="Enter eEmail"><span id='e_e'></span>
+	<br><br>
+	<input type="" name="pass" placeholder="Enter Password">
+	<br><br>
+	Choose City Here:<br>
+	<select name="city">
+		<option value="">Choose City</option>
+		<option value="junagadh">junagadh</option>
+		<option value="rajkot">rajkot</option>
+		<option value="surat">surat</option>
+	</select>
+	<br><br>
+	Gender: <input type="radio" name="g" value="male">Male &nbsp;&nbsp;&nbsp;
+	<input type="radio" name="g" value="female">Female
+	<br><br>
+	Choose product:
+	<input type="checkbox" name="pro1" id='pr1' value="Apple">Apple &nbsp;&nbsp;
+	<input type="checkbox" name="pro2" id='pr2' value="Dell">Dell &nbsp;&nbsp;
+	<input type="checkbox" name="pro3" id='pr3' value="Sony">Sony &nbsp;&nbsp;
+	<br><br>
+	<input type="submit" name="" value=" Check Now">
+	<br><br>
+
+</form>
+<div style="border:1px solid red; padding: 50px; ">
+	<div id=user></div>
+	<div id=pass></div>
+	<div id=email></div>
+	<div id=city></div>
+	<div id=gen></div>
+	<div id=pro></div>
+</div>
